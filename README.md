@@ -78,6 +78,7 @@ data_agg = data_agg.sort_values(by='posting_date')
 
 print(data_agg.head())
 
+[screenshot]{https://github.com/mercycheeky/Craig-list-vehicles_Lux/blob/main/Screenshot%202024-02-14%20075854.png}
 
 
 ```
