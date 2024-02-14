@@ -6,7 +6,11 @@ This will aid in understanding regional demand-supply dynamics, seasonal trends 
 
 # Step 1
 I will import the necessary packages, handle missing values,drop unnecessary columns and convert the "posting_date" to a datateime data type
-'''
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
 # load all the necessary package that I will use in the notebook
 import pytz
 import warnings
