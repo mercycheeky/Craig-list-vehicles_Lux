@@ -66,7 +66,7 @@ This will allow me to perform various analyses and gain insights into how the in
 ```![Screenshot 2024-02-14 075854](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/2585cf27-112b-481f-a28a-b725f2d02749)
 
 
-
+```
 
 
 
