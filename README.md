@@ -4,6 +4,28 @@ The project involves transforming the provided record-level dataset into  Time s
 overtime, segmented by regions. For instance, the model should facilitate the creation of a time series chart that represents the number of vehicles available overtime, filtered by specific criteria such as region, vehicle type e.t.c.
 This will aid in understanding regional demand-supply dynamics, seasonal trends and other relevant insights.
 
+# Step 1
+I will import the necessary packages, handle missing values,drop unnecessary columns and convert the "posting_date" to a datateime data type
+// 
+# load all the necessary package that I will use in the notebook
+import pytz
+import warnings
+import pandas as pd
+import plotly.express as px
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+from statsmodels.tsa.seasonal import seasonal_decompose
+warnings.filterwarnings('ignore', category=FutureWarning)
+
+
+
+
+
+
+
+
+
+
 - You can get data used in this project from Kaggle, here https://www.kaggle.com/datasets/mbaabuharun/craigslist-vehicles
 # My Approach:
 - First I handled the missing values in the dataset. I resolved this by filling in the missing values with the median and mode of numerical and categorical data on the respective columns.
