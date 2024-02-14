@@ -1,4 +1,9 @@
-# Craig-list-vehicles_Lux
+# Craig-list-vehicles_Lux   (Time Series Model)
+## Task 
+The project involves transforming the provided record-level dataset into  Time series model. The main objective of this model is to gain insights into the temporal patterns of vehicle listings, with a particular emphasis on conducting an inventory analysis
+overtime, segmented by regions. For instance, the model should facilitate the creation of a time series chart that represents the number of vehicles available overtime, filtered by specific criteria such as region, vehicle type e.t.c.
+This will aid in understanding regional demand-supply dynamics, seasonal trends and other relevant insights.
+
 - You can get data used in this project from Kaggle, here https://www.kaggle.com/datasets/mbaabuharun/craigslist-vehicles
 # My Approach:
 - First I handled the missing values in the dataset. I resolved this by filling in the missing values with the median and mode of numerical and categorical data on the respective columns.
