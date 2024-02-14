@@ -59,6 +59,11 @@ def handle_missing_values(data):
 data = handle_missing_values(data)
 ```
 
+# Step 2
+After successfully handling the missing values and cleaning the data, I will move to the next step where I will aggregate the data based on the 'posting_date','region', and 'type' of vehicle to be able to analyze the temporal patterns, seasonal trends and demand-supply dynamics.
+This will allow me to perform various analyses and gain insights into how the inventory varies overtime in different regions and vehicle types.
+
+```![Screenshot 2024-02-14 075854](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/2585cf27-112b-481f-a28a-b725f2d02749)
 
 
 
