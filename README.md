@@ -77,7 +77,7 @@ data_agg = data.groupby(['region', 'type', 'posting_date']).size().reset_index(n
 data_agg = data_agg.sort_values(by='posting_date')
 
 print(data_agg.head())
-![Screenshot 2024-02-14 075854]([https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/2585cf27-112b-481f-a28a-b725f2d02749)](https://github.com/mercycheeky/Craig-list-vehicles_Lux/commit/cae24ceee526e036812c189c3d66bf6a8587329f)
+
 
 
 ```
