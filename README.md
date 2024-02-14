@@ -78,17 +78,98 @@ data_agg = data_agg.sort_values(by='posting_date')
 
 print(data_agg.head())
 
-![image](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/70ecddee-cd73-4929-9783-bac0b3eff70d)
-
-
+```
+![Screenshot 2024-02-14 075854](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/f7367f68-5b94-41a0-86a5-1c3ed2d874a5)
 
 ```
+# Create an interactive time-series chart
+fig = px.line(data_agg, x='posting_date', y='count', color='region', line_group='type',
+              title='Number of Available Vehicles Over Time by Region and Vehicle Type',
+              labels={'count': 'Number of Vehicles'})
 
+# Customize the layout
+fig.update_layout(
+    xaxis_title='Posting Date',
+    yaxis_title='Number of Vehicles',
+    hovermode='x',
+    showlegend=True,
+)
 
+# Show the chart
+fig.show()
+```
 
+![Screenshot 2024-02-14 081533](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/8c69c5a1-353e-47d6-b553-dc0feee3b2b7)
 
+![Screenshot 2024-02-14 081726](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/e132e7fe-ed33-498d-a241-dae8048054fc)
 
+```
+# group the data by day and count the number of listings
+data_freq = data_agg.groupby(pd.Grouper(key='posting_date', freq='D')).sum().reset_index()
 
+# create the time frequency graph
+fig_freq = go.Figure(data=go.Bar(
+    x=data_freq['posting_date'],
+    y=data_freq['count'],
+    marker_color='royalblue',
+    opacity=0.8
+))
+
+# customize the layout
+fig_freq.update_layout(
+    title='Time Frequency Graph: Number of Vehicle Listings per Day',
+    xaxis_title='Posting Date',
+    yaxis_title='Number of Vehicle Listings',
+    xaxis_tickangle=-45,
+)
+
+# show the time frequency graph
+fig_freq.show()
+```
+
+![Screenshot 2024-02-14 081821](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/e219ee3d-9146-43cc-9c11-750623f73718)
+
+```
+# perform seasonal decomposition
+data_agg = data_agg.set_index('posting_date')
+result = seasonal_decompose(data_agg['count'], model='additive', period=365)
+
+# create a new DataFrame to store the decomposition components
+decomposed_data = pd.DataFrame({
+    'trend': result.trend,
+    'seasonal': result.seasonal,
+    'residual': result.resid,
+})
+
+# reset the index for plotting
+decomposed_data = decomposed_data.reset_index()
+
+# plot the seasonal decomposition
+fig_decompose = go.Figure()
+
+fig_decompose.add_trace(go.Scatter(x=decomposed_data['posting_date'], y=decomposed_data['trend'],
+                                   mode='lines', name='Trend'))
+fig_decompose.add_trace(go.Scatter(x=decomposed_data['posting_date'], y=decomposed_data['seasonal'],
+                                   mode='lines', name='Seasonal'))
+fig_decompose.add_trace(go.Scatter(x=decomposed_data['posting_date'], y=decomposed_data['residual'],
+                                   mode='lines', name='Residual'))
+
+# customize the layout
+fig_decompose.update_layout(title='Seasonal Decomposition of Time Series',
+                            xaxis_title='Posting Date',
+                            yaxis_title='Counts',
+                            showlegend=True)
+
+# show the plot
+fig_decompose.show()
+```
+![Screenshot 2024-02-14 082113](https://github.com/mercycheeky/Craig-list-vehicles_Lux/assets/56400871/fa71c577-7f89-426e-8d84-3a98b4d711ec)
+
+Explanation:
+
+- In the plot displayed above, the trend and seasonality are not discernible; only the residual component is visible. This is primarily due to the limited time period over which the data was collected, making it challenging to capture and observe the underlying seasonal and trend patterns.
+
+### Data source
 - You can get data used in this project from Kaggle, here https://www.kaggle.com/datasets/mbaabuharun/craigslist-vehicles
 # My Approach:
 - First I handled the missing values in the dataset. I resolved this by filling in the missing values with the median and mode of numerical and categorical data on the respective columns.
