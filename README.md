@@ -1,6 +1,6 @@
 # Craig-list-vehicles_Lux   (Time Series Model)
 ## Task 
-The project involves transforming the provided record-level dataset into  Time series model. The main objective of this model is to gain insights into the temporal patterns of vehicle listings, with a particular emphasis on conducting an inventory analysis
+The project involves transforming the provided record-level dataset into a Time series model. The main objective of this model is to gain insights into the temporal patterns of vehicle listings, with a particular emphasis on conducting an inventory analysis
 overtime, segmented by regions. For instance, the model should facilitate the creation of a time series chart that represents the number of vehicles available overtime, filtered by specific criteria such as region, vehicle type e.t.c.
 This will aid in understanding regional demand-supply dynamics, seasonal trends and other relevant insights.
 
